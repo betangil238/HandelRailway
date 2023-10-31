@@ -27,7 +27,7 @@ public class Usuario {
     private String name;
     @Column(length = 50)
     private String name2;
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private String email;
     private Integer reset=0;
     @Column(unique = true, length = 50)

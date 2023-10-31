@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface UsuarioCrudRepository extends ListCrudRepository<Usuario,Integer> {
     List<Usuario> findByNameOrderByIdUsuarioAsc(String name);
     Optional<List<Usuario>> findByResetLessThanAndSaldo(int reset, BigDecimal saldo);
+    Usuario findByEmail(String email);
 }

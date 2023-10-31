@@ -37,6 +37,9 @@ public class UsuarioService {
         return this.usuarioCrudRepository.save(user);
     }
 
+    public Optional<Usuario> getUserEmail(String email){
+        return Optional.ofNullable(this.usuarioCrudRepository.findByEmail(email));
+    }
     public boolean existe(int id){
         return this.usuarioCrudRepository.existsById(id);
     }

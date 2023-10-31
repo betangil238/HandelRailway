@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -27,6 +28,11 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getUser(@PathVariable("id") int id){
         return ResponseEntity.ok(this.usuarioService.getUser(id));
+    }
+
+    @GetMapping("/validacion/{email}")
+    public ResponseEntity<Optional<Usuario>> getUserEmail(@PathVariable("email") String email){
+        return  ResponseEntity.ok(this.usuarioService.getUserEmail(email));
     }
     @PostMapping
     public ResponseEntity<Usuario> save(@RequestBody Usuario user){
