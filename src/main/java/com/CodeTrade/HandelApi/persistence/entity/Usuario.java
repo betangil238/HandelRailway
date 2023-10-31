@@ -35,16 +35,16 @@ public class Usuario {
     @Column(unique = true, length = 50)
     private String usuario1;
     @Column(columnDefinition = "Decimal(10,2)")
-    private BigDecimal saldo;
+    private BigDecimal saldo=BigDecimal.ZERO;
     @Lob
     @Column(columnDefinition = "BLOB")
     private byte[] imagen;
     @Column(length = 50)
     private String contrasena;
     @Column(columnDefinition = "FLOAT")
-    private Float puntuacion;
+    private Float puntuacion=0.0f;
     @Column(name = "plan_premium")
-    private String planPremium;
+    private String planPremium="Basico";
     private Integer pujas=10;
     private Integer trueques=3;
     @Column(name = "created_date")
