@@ -37,7 +37,7 @@ public class Usuario {
     @Column(columnDefinition = "Decimal(10,2)")
     private BigDecimal saldo=BigDecimal.ZERO;
     @Lob
-    @Column(columnDefinition = "BLOB")
+    @Column(columnDefinition = "MEDIUMBLOB")
     private byte[] imagen;
     @Column(length = 50)
     private String contrasena;
