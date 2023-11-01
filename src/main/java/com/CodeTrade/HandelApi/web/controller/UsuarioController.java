@@ -2,9 +2,13 @@ package com.CodeTrade.HandelApi.web.controller;
 import com.CodeTrade.HandelApi.persistence.entity.Usuario;
 import com.CodeTrade.HandelApi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,6 +64,23 @@ public class UsuarioController {
             return ResponseEntity.ok().build();
         };
         return ResponseEntity.badRequest().build();
+    }
+
+    @PatchMapping("/{id}/imagen")
+    public ResponseEntity<String> actualizarImagen(
+            @PathVariable Long id,
+            @RequestPart("imagen") MultipartFile imagenFile) {
+        try {
+            byte[] imagen = imagenFile.getBytes();
+            int rowsAffected = usuarioService.actualizarImagen(id, imagen);
+            if (rowsAffected > 0) {
+                return ResponseEntity.ok("Imagen actualizada con éxito.");
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró el usuario.");
+            }
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al procesar la imagen.");
+        }
     }
 
 }

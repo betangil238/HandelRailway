@@ -2,6 +2,7 @@ package com.CodeTrade.HandelApi.service;
 
 import com.CodeTrade.HandelApi.persistence.entity.Usuario;
 import com.CodeTrade.HandelApi.persistence.repository.UsuarioCrudRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
@@ -51,4 +52,10 @@ public class UsuarioService {
     public void delete(int userId){
         this.usuarioCrudRepository.deleteById(userId);
     }
+
+    @Transactional
+    public int actualizarImagen(Long id, byte[] imagen) {
+        return usuarioCrudRepository.updateImagen(id, imagen);
+    }
+
 }
