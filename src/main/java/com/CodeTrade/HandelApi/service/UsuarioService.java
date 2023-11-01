@@ -40,6 +40,10 @@ public class UsuarioService {
     public Optional<Usuario> getUserEmail(String email){
         return Optional.ofNullable(this.usuarioCrudRepository.findByEmail(email));
     }
+
+    public Optional<Usuario> getUsuario1(String usuario){
+        return Optional.ofNullable(this.usuarioCrudRepository.findByUsuario1(usuario));
+    }
     public boolean existe(int id){
         return this.usuarioCrudRepository.existsById(id);
     }

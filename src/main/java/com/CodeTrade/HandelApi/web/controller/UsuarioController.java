@@ -34,6 +34,10 @@ public class UsuarioController {
     public ResponseEntity<Optional<Usuario>> getUserEmail(@PathVariable("email") String email){
         return  ResponseEntity.ok(this.usuarioService.getUserEmail(email));
     }
+    @GetMapping("/validusuario/{usuario}")
+    public ResponseEntity<Optional<Usuario>> getUuario1(@PathVariable("usuario") String usuario){
+        return  ResponseEntity.ok(this.usuarioService.getUsuario1(usuario));
+    }
     @PostMapping
     public ResponseEntity<Usuario> save(@RequestBody Usuario user){
         if(user.getIdUsuario() == null || !this.usuarioService.existe(user.getIdUsuario())){

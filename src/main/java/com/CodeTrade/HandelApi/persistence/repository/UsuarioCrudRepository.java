@@ -11,4 +11,5 @@ public interface UsuarioCrudRepository extends ListCrudRepository<Usuario,Intege
     List<Usuario> findByNameOrderByIdUsuarioAsc(String name);
     Optional<List<Usuario>> findByResetLessThanAndSaldo(int reset, BigDecimal saldo);
     Usuario findByEmail(String email);
+    Usuario findByUsuario1(String usuario);
 }
