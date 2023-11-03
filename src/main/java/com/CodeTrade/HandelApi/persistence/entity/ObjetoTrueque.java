@@ -22,10 +22,9 @@ public class ObjetoTrueque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idtrueques", nullable = false, unique = true)
     private Integer idTrueques;
-//    @Lob
-//    @Column(columnDefinition = "MEDIUMBLOB")
-//    private byte[] imagen;
-    private String imagen;
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private byte[] imagen;
     @Column(length = 50,nullable = false)
     private String  titulo;
     @Column(length = 255,nullable = false)
