@@ -28,7 +28,7 @@ public class ObjetoTruequeController {
         return ResponseEntity.ok(this.objetoTruequeService.getObjTrueque(id));
     }
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping
     public ResponseEntity<ObjetoTrueque> save(@RequestBody ObjetoTrueque objTrueque){
         if (objTrueque.getIdTrueques() == null || !this.objetoTruequeService.existe(objTrueque.getIdTrueques())){
             return ResponseEntity.ok(this.objetoTruequeService.save(objTrueque));
