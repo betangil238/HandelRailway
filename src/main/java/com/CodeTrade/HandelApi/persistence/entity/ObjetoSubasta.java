@@ -23,8 +23,8 @@ public class ObjetoSubasta {
     @Column(nullable = false, unique = true)
     private Integer idsubastas;
     @Lob
-    @Column(columnDefinition = "MEDIUMBLOB")
-    private byte[] imagen;
+    @Column(columnDefinition = "MEDIUMTEXT")
+    private String imagen;
     @Column(length = 50,nullable = false)
     private String  titulo;
     @Column(length = 255,nullable = false)
