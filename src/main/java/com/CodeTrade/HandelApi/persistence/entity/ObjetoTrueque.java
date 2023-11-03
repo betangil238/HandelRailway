@@ -23,8 +23,8 @@ public class ObjetoTrueque {
     @Column(name="idtrueques", nullable = false, unique = true)
     private Integer idTrueques;
     @Lob
-    @Column(columnDefinition = "MEDIUMBLOB")
-    private byte[] imagen;
+//    @Column(columnDefinition = "MEDIUMBLOB")
+    private String imagen;
     @Column(length = 50,nullable = false)
     private String  titulo;
     @Column(length = 255,nullable = false)
