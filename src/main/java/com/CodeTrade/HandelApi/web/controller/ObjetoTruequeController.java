@@ -2,6 +2,7 @@ package com.CodeTrade.HandelApi.web.controller;
 import com.CodeTrade.HandelApi.persistence.entity.ObjetoTrueque;
 import com.CodeTrade.HandelApi.service.ObjetoTruequeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class ObjetoTruequeController {
         return ResponseEntity.ok(this.objetoTruequeService.getObjTrueque(id));
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<ObjetoTrueque> save(@RequestBody ObjetoTrueque objTrueque){
         if (objTrueque.getIdTrueques() == null || !this.objetoTruequeService.existe(objTrueque.getIdTrueques())){
             return ResponseEntity.ok(this.objetoTruequeService.save(objTrueque));
