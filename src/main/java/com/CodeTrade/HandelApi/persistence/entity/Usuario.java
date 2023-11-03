@@ -71,6 +71,6 @@ public class Usuario {
     private List<ObjetoSubasta> objetosDeSubastaGanador;
 
     @OneToMany (mappedBy = "usuarioObTr", fetch =  FetchType.EAGER)
-    @JsonIgnore
+//    @JsonIgnore
     private List<ObjetoTrueque> objetosDeTrueque;
 }
