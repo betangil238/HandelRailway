@@ -16,8 +16,9 @@ import java.util.List;
 public class TruequeController {
 
     private final TruequeService truequeService;
-
+    @Autowired
     private ObjetoTruequeService objetoTruequeService;
+    @Autowired
     private MensajeService mensajeService;
     @Autowired
     public TruequeController(TruequeService truequeService) {
@@ -41,12 +42,12 @@ public class TruequeController {
         if(id!=0){
             Trueque truequeCompleto= getTrueque(id).getBody();
             truequeCompleto.setEstado("Exitoso");
-//            ObjetoTrueque objeto1= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque1());
-//            objeto1.setVisibilidad("Privado");
-//            objetoTruequeService.save(objeto1);
-//            ObjetoTrueque objeto2= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque2());
-//            objeto2.setVisibilidad("Privado");
-//            objetoTruequeService.save(objeto2);
+            ObjetoTrueque objeto1= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque1());
+            objeto1.setVisibilidad("Privado");
+            objetoTruequeService.save(objeto1);
+            ObjetoTrueque objeto2= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque2());
+            objeto2.setVisibilidad("Privado");
+            objetoTruequeService.save(objeto2);
 //            String mensaje1 = "Gracias por truequear mi objeto: "+objeto1.getTitulo();
 //            String mensaje2 = "Gracias por truequear mi objeto: "+objeto2.getTitulo();
 //            Mensajes mensaje1enviado = new Mensajes();
