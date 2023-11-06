@@ -21,7 +21,7 @@ public class Notificacion {
     @Id
     @Column(nullable = false, unique = true)
     private Integer idnotificacion;
-    @Column(length = 50,nullable = false)
+    @Column(length = 150,nullable = false)
     private String mensaje;
     @Column(name = "id_usuario",nullable = false)
     private Integer idUsuario;
