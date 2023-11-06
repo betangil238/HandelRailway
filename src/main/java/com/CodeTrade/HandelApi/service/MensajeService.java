@@ -26,6 +26,10 @@ public class MensajeService {
     public Mensajes save(Mensajes mensajes){
         return this.mensajesCrudRepository.save(mensajes);
     }
+    public void guardad(Mensajes mensajes){
+        this.mensajesCrudRepository.save(mensajes);
+    }
+
     public boolean existe(int id){
         return this.mensajesCrudRepository.existsById(id);
     }
