@@ -1,5 +1,9 @@
 package com.CodeTrade.HandelApi.web.controller;
+import com.CodeTrade.HandelApi.persistence.entity.Mensajes;
+import com.CodeTrade.HandelApi.persistence.entity.ObjetoTrueque;
 import com.CodeTrade.HandelApi.persistence.entity.Trueque;
+import com.CodeTrade.HandelApi.service.MensajeService;
+import com.CodeTrade.HandelApi.service.ObjetoTruequeService;
 import com.CodeTrade.HandelApi.service.TruequeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +16,9 @@ import java.util.List;
 public class TruequeController {
 
     private final TruequeService truequeService;
+
+    private ObjetoTruequeService objetoTruequeService;
+    private MensajeService mensajeService;
     @Autowired
     public TruequeController(TruequeService truequeService) {
         this.truequeService = truequeService;
@@ -34,6 +41,24 @@ public class TruequeController {
         if(id!=0){
             Trueque truequeCompleto= getTrueque(id).getBody();
             truequeCompleto.setEstado("Exitoso");
+            ObjetoTrueque objeto1= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque1());
+            objeto1.setVisibilidad("Privado");
+            objetoTruequeService.save(objeto1);
+            ObjetoTrueque objeto2= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque2());
+            objeto2.setVisibilidad("Privado");
+            objetoTruequeService.save(objeto2);
+            String mensaje1 = "Gracias por truequear mi objeto: "+objeto1.getTitulo();
+            String mensaje2 = "Gracias por truequear mi objeto: "+objeto2.getTitulo();
+            Mensajes mensaje1enviado = new Mensajes();
+            mensaje1enviado.setIdUsuario1(objeto1.getIdUsuario());
+            mensaje1enviado.setIdUsuario2(objeto2.getIdUsuario());
+            mensaje1enviado.setMensaje(mensaje1);
+            Mensajes mensaje2enviado = new Mensajes();
+            mensaje2enviado.setIdUsuario1(objeto2.getIdUsuario());
+            mensaje1enviado.setIdUsuario2(objeto1.getIdUsuario());
+            mensaje1enviado.setMensaje(mensaje2);
+            mensajeService.save(mensaje1enviado);
+            mensajeService.save(mensaje2enviado);
             return ResponseEntity.ok(this.truequeService.save(truequeCompleto));
         }
         if (trueque.getIdtrueques() == null || !this.truequeService.existe(trueque.getIdtrueques())){
