@@ -44,10 +44,10 @@ public class TruequeController {
             truequeCompleto.setEstado("Exitoso");
             ObjetoTrueque objeto1= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque1());
             objeto1.setVisibilidad("Privado");
-            objetoTruequeService.save(objeto1);
+            objetoTruequeService.guardar(objeto1);
             ObjetoTrueque objeto2= objetoTruequeService.getObjTrueque(truequeCompleto.getIdObjetoTrueque2());
             objeto2.setVisibilidad("Privado");
-            objetoTruequeService.save(objeto2);
+            objetoTruequeService.guardar(objeto2);
 //            String mensaje1 = "Gracias por truequear mi objeto: "+objeto1.getTitulo();
 //            String mensaje2 = "Gracias por truequear mi objeto: "+objeto2.getTitulo();
 //            Mensajes mensaje1enviado = new Mensajes();

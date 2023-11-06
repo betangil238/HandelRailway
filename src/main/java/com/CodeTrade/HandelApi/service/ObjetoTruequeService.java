@@ -27,6 +27,11 @@ public class ObjetoTruequeService {
         return this.objetoTruequeCrudRepository.save(objtrueque);
     }
 
+    public void guardar(ObjetoTrueque objtrueque){
+        this.objetoTruequeCrudRepository.save(objtrueque);
+    }
+
+
     public boolean existe(int id){
         return this.objetoTruequeCrudRepository.existsById(id);
     }
