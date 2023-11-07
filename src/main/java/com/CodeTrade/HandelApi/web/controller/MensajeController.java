@@ -22,7 +22,7 @@ public class MensajeController {
         return ResponseEntity.ok(this.mensajeService.getAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Mensajes> getMensaje(int id){
+    public ResponseEntity<Mensajes> getMensaje(@PathVariable("id") int id){
         return ResponseEntity.ok(this.mensajeService.getMensaje(id));
     }
 
