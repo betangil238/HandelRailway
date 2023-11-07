@@ -28,7 +28,7 @@ public class MensajeController {
 
     @PostMapping
     public ResponseEntity<Mensajes> save(@RequestBody Mensajes mensaje){
-        if(mensaje.getIdmensajes() == null || this.mensajeService.existe(mensaje.getIdmensajes())){
+        if(mensaje.getIdmensajes() == null || !this.mensajeService.existe(mensaje.getIdmensajes())){
             return ResponseEntity.ok(this.mensajeService.save(mensaje));
         }
             return ResponseEntity.badRequest().build();

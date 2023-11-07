@@ -31,7 +31,7 @@ public class ContenidoMensajeController {
 
     @PostMapping
     public ResponseEntity<ContenidoMensaje> save(@RequestBody ContenidoMensaje contenido){
-        if(contenido.getIdChat() == null || !this.contenidoMensajeService.existe(contenido.getIdChat())){
+        if(contenido.getIdcontenido() == null || !this.contenidoMensajeService.existe(contenido.getIdcontenido())){
             return ResponseEntity.ok(this.contenidoMensajeService.save(contenido));
         }
         return ResponseEntity.badRequest().build();
