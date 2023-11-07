@@ -37,6 +37,6 @@ public class ContenidoMensaje {
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name="chat", referencedColumnName = "idmensajes",insertable = false, updatable = false)
     @JsonIgnore
-    private Usuario menCont;
+    private Mensajes menCont;
 
 }
