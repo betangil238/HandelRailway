@@ -23,7 +23,7 @@ public class Mensajes {
     private Integer idmensajes;
     @Column(length = 255,nullable = false)
     private String mensaje;
-    @Column(columnDefinition = "TIMESTAMP",nullable = false)
+    @Column(columnDefinition = "TIMESTAMP")
     @CreatedDate
     private LocalDateTime horaMensaje;
     @Column (name = "id_usuario1",nullable = false, unique = true)
