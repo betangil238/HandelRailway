@@ -19,7 +19,7 @@ public class ContenidoMensaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, unique = true)
-    private Integer idtrueques;
+    private Integer idcontenido;
 
     @Column(length = 255,nullable = false)
     private String mensaje;
@@ -31,7 +31,7 @@ public class ContenidoMensaje {
     @Column (name = "envia",nullable = false)
     private Integer idUsuario1;
 
-    @Column (name = "chat",nullable = false, unique = true)
+    @Column (name = "chat",nullable = false)
     private Integer idChat;
 
     @ManyToOne (fetch = FetchType.LAZY)
