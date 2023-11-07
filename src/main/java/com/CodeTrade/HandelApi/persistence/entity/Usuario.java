@@ -54,7 +54,6 @@ public class Usuario {
     @LastModifiedDate
     private LocalDateTime modifiedDate;
 
-
     @OneToMany (mappedBy = "usuarioMens1",fetch =  FetchType.EAGER)
     private List<Mensajes> mensajes1;
 

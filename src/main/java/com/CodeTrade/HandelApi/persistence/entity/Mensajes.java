@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "mensajes")
 @Entity
@@ -21,14 +22,11 @@ public class Mensajes {
     @Id
     @Column(nullable = false, unique = true)
     private Integer idmensajes;
-    @Column(length = 255,nullable = false)
-    private String mensaje;
-    @Column(columnDefinition = "TIMESTAMP")
     @CreatedDate
     private LocalDateTime horaMensaje;
-    @Column (name = "id_usuario1",nullable = false, unique = true)
+    @Column (name = "id_usuario1",nullable = false)
     private Integer idUsuario1;
-    @Column (name = "id_usuario2",nullable = false, unique = true)
+    @Column (name = "id_usuario2",nullable = false)
     private Integer idUsuario2;
 
     @ManyToOne (fetch = FetchType.LAZY)
@@ -39,5 +37,7 @@ public class Mensajes {
     @JoinColumn(name="id_usuario2", referencedColumnName = "idusuario", insertable = false, updatable = false)
     @JsonIgnore
     private Usuario usuarioMens2;
+    @OneToMany (mappedBy = "menCont",fetch =  FetchType.EAGER)
+    private List<ContenidoMensaje> mensajes;
 
 }

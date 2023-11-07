@@ -50,18 +50,10 @@ public class TruequeController {
             objeto2.setVisibilidad("Privado");
             objetoTruequeService.guardar(objeto1);
             objetoTruequeService.guardar(objeto2);
-            String mensaje1 = "Gracias por truequear mi objeto: "+objeto1.getTitulo();
-            String mensaje2 = "Gracias por truequear mi objeto: "+objeto2.getTitulo();
             Mensajes mensaje1enviado = new Mensajes();
             mensaje1enviado.setIdUsuario1(objeto1.getIdUsuario());
             mensaje1enviado.setIdUsuario2(objeto2.getIdUsuario());
-            mensaje1enviado.setMensaje(mensaje1);
-            Mensajes mensaje2enviado = new Mensajes();
-            mensaje2enviado.setIdUsuario1(objeto2.getIdUsuario());
-            mensaje2enviado.setIdUsuario2(objeto1.getIdUsuario());
-            mensaje2enviado.setMensaje(mensaje2);
             mensajeService.guardad(mensaje1enviado);
-            mensajeService.guardad(mensaje2enviado);
             return ResponseEntity.ok(this.truequeService.save(truequeCompleto));
         }
         if (trueque.getIdtrueques() == null || !this.truequeService.existe(trueque.getIdtrueques())){
