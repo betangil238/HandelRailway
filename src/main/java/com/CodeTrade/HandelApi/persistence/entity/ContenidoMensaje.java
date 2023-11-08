@@ -23,8 +23,9 @@ public class ContenidoMensaje {
     @Column(length = 255,nullable = false)
     private String mensaje;
 
+    @Column(columnDefinition = "DATETIME")
     @CreatedDate
-    private LocalDateTime createdDate;
+    private LocalDateTime fechadecreacion;
 
     @Column (name = "envia",nullable = false)
     private Integer idUsuario1;
