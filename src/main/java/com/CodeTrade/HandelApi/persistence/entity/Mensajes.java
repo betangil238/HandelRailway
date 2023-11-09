@@ -33,10 +33,12 @@ public class Mensajes {
     @JoinColumn(name="id_usuario1", referencedColumnName = "idusuario",insertable = false, updatable = false)
     @JsonIgnore
     private Usuario usuarioMens1;
+
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name="id_usuario2", referencedColumnName = "idusuario", insertable = false, updatable = false)
     @JsonIgnore
     private Usuario usuarioMens2;
+
     @OneToMany (mappedBy = "menCont",fetch =  FetchType.EAGER)
     private List<ContenidoMensaje> mensajes;
 
